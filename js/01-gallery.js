@@ -1,4 +1,3 @@
-
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
@@ -12,7 +11,7 @@ ref.gallery.addEventListener('click', onGalleryImageClick);
 function createGalleryMarkup(arr) {
   return arr
     .map(
-      ({ preview, original, description }) => `<div class="gallery__item">
+      ({ preview, original, description }) => `<li class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -21,7 +20,7 @@ function createGalleryMarkup(arr) {
       alt="${description}"
     />
   </a>
-</div>`,
+</li>`,
     )
     .join('');
 }
@@ -34,7 +33,7 @@ function onGalleryImageClick(event) {
   if (!galleryImage) return;
 
   const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600">
+  <img src="${event.target.dataset.source}" width="800" height="600">
 `);
 
   instance.show();
@@ -45,4 +44,4 @@ function onGalleryImageClick(event) {
       instance.close();
     });
   }
-}
+};
